@@ -1,0 +1,1234 @@
+/* =========================================================================
+   STRICT SOLID 2-COLOR DESIGN SYSTEM
+   - BRAND NAVY: #0b3161 (Solid, No Gradients, No Dual-Tone)
+   - BRAND RED:  #c11232 (Solid, No Gradients, No Dual-Tone)
+   - BASE:       #ffffff (Pure White)
+   - NO BLACK (#000), NO SECONDARY TONES, NO MULTI-COLOR GRADIENTS
+   ========================================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap');
+
+:root {
+  /* Strictly 2 Official Brand Colors */
+  --brand-navy: #0b3161;
+  --brand-red: #c11232;
+  --brand-white: #ffffff;
+
+  /* Aliases for crisp consistent usage */
+  --navy: #0b3161;
+  --red: #c11232;
+  --white: #ffffff;
+
+  /* Backgrounds: Pure Solid Colors */
+  --bg-page: #ffffff;
+  --bg-navy: #0b3161;
+  --bg-red: #c11232;
+  --bg-alt: #f4f7fb;
+  /* Light crisp navy tint */
+
+  /* Borders: Solid 1px crisp lines */
+  --border-light: #d6e2f0;
+  --border-navy: #0b3161;
+  --border-red: #c11232;
+
+  /* Text: Strictly Navy or White */
+  --text-main: #0b3161;
+  --text-muted: #3a5c88;
+  --text-white: #ffffff;
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --header-h: 84px;
+  --radius: 6px;
+  --radius-pill: 9999px;
+  --container-max: 1280px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-main);
+  background: var(--bg-page);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a,
+input,
+select,
+textarea,
+button,
+label {
+  color: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container-wide {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+/* =========================================================================
+   HEADER / NAVBAR (Pure White Background matching Client Reference)
+   ========================================================================= */
+.emp-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  height: 72px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.emp-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+
+.emp-logo-wrap {
+  display: flex;
+  align-items: center;
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+  text-decoration: none;
+}
+
+.emp-logo-wrap:hover {
+  opacity: 0.9;
+}
+
+.emp-logo-img {
+  height: 42px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.emp-nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 992px) {
+  .emp-nav-menu {
+    display: none;
+  }
+}
+
+.emp-nav-link {
+  height: 40px;
+  padding: 0 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--navy);
+  /* font-weight: 600; */
+  font-size: 0.9rem;
+  border-radius: 4px;
+  transition: all 0.15s ease;
+  text-decoration: none;
+  background: transparent;
+}
+
+.emp-nav-link:hover,
+.emp-nav-link.active {
+  background: #f1f5f9;
+  font-weight: 600;
+  color: var(--navy) !important;
+}
+
+.emp-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Header icon button (Search) */
+.emp-icon-btn {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--navy);
+  background: transparent;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.emp-icon-btn:hover {
+  background: #f1f5f9;
+  color: var(--red);
+}
+
+/* Header Login outline button on White Header */
+.emp-btn-header-login {
+  height: 38px;
+  padding: 0 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--navy);
+  background: transparent;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.emp-btn-header-login:hover {
+  border-color: var(--navy);
+  background: #f8fafc;
+}
+
+/* Header Post a Project CTA Button */
+.emp-btn-header-cta {
+  height: 38px;
+  padding: 0 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #ffffff !important;
+  background: var(--red);
+  border: 1px solid var(--red);
+  border-radius: 4px;
+  text-decoration: none;
+  box-shadow: 0 2px 4px rgba(193, 18, 50, 0.2);
+  transition: all 0.15s ease;
+}
+
+.emp-btn-header-cta:hover {
+  background: #d91b3e;
+  border-color: #d91b3e;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(193, 18, 50, 0.25);
+}
+
+.emp-btn-header-cta:active {
+  transform: translateY(0);
+}
+
+/* =========================================================================
+   BUTTONS (Professional Engineering Marketplace Styling)
+   ========================================================================= */
+.emp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  border-radius: 4px;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  border: 1px solid transparent;
+  transition: all 0.15s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.emp-btn:active {
+  transform: translateY(1px);
+}
+
+.emp-btn-primary {
+  background: var(--red);
+  color: #ffffff !important;
+  border-color: var(--red);
+}
+
+.emp-btn-primary:hover {
+  background: #d91b3e;
+  border-color: #d91b3e;
+  box-shadow: 0 4px 10px rgba(193, 18, 50, 0.25);
+}
+
+.emp-btn-secondary {
+  background: #ffffff;
+  color: var(--navy) !important;
+  border: 1px solid #cbd5e1;
+}
+
+.emp-btn-secondary:hover {
+  background: #f8fafc;
+  border-color: var(--navy);
+  color: var(--red) !important;
+}
+
+.emp-btn-outline-light {
+  background: transparent;
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.emp-btn-outline-light:hover {
+  background: #ffffff;
+  color: var(--navy) !important;
+  border-color: #ffffff;
+}
+
+.emp-btn-white {
+  background: #ffffff;
+  color: var(--navy) !important;
+  border-color: #ffffff;
+}
+
+.emp-btn-white:hover {
+  background: #f1f5f9;
+  color: var(--navy) !important;
+}
+
+.emp-btn-outline-navy {
+  background: transparent;
+  color: var(--navy);
+  border-color: var(--navy);
+}
+
+.emp-btn-outline-navy:hover {
+  background: var(--navy);
+  color: #ffffff !important;
+}
+
+.emp-btn-xl {
+  height: 48px;
+  padding-inline: 1.6rem;
+  font-size: 0.95rem;
+}
+
+.emp-btn-lg {
+  height: 44px;
+  padding-inline: 1.4rem;
+  font-size: 0.9rem;
+}
+
+.emp-btn-md {
+  height: 40px;
+  padding-inline: 1.15rem;
+  font-size: 0.85rem;
+}
+
+/* =========================================================================
+   HERO SECTION (Pure Solid Navy, No Gradients, No Shading)
+   ========================================================================= */
+.emp-hero {
+  background: var(--navy);
+  color: var(--white);
+  padding-top: 4.5rem;
+  padding-bottom: 4.5rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.emp-hero-inner {
+  max-width: 880px;
+}
+
+.emp-hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.35rem 0.85rem 0.35rem 0.4rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: var(--navy);
+  font-size: 0.78rem;
+  color: var(--white);
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.emp-hero-eyebrow-tag {
+  background: var(--red);
+  color: var(--white);
+  border-radius: var(--radius-pill);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.18rem 0.55rem;
+}
+
+.emp-hero-title {
+  font-size: clamp(2.4rem, 1.8rem + 4vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: var(--white);
+  margin: 0 0 1.25rem 0;
+}
+
+.emp-hero-title em {
+  font-style: normal;
+  display: inline-block;
+  color: #ff3355;
+  border-bottom: 4px solid var(--red);
+  padding-bottom: 0.05em;
+}
+
+.emp-ticker-band {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.emp-ticker-lead {
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--white);
+}
+
+.emp-ticker-chips {
+  display: flex;
+  gap: 0.45rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.emp-ticker-chip {
+  background: var(--navy);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: var(--white);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius);
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.emp-hero-sub {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 620px;
+  margin-bottom: 2rem;
+}
+
+/* Hero Search Form */
+.emp-search-form {
+  display: flex;
+  gap: 0.6rem;
+  max-width: 44rem;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 640px) {
+  .emp-search-form {
+    flex-direction: column;
+  }
+}
+
+.emp-search-field {
+  flex: 1;
+  position: relative;
+}
+
+.emp-search-icon {
+  position: absolute;
+  top: 50%;
+  left: 1.1rem;
+  transform: translateY(-50%);
+  color: var(--navy);
+  pointer-events: none;
+}
+
+.emp-search-input {
+  width: 100%;
+  height: 52px;
+  border-radius: var(--radius);
+  border: 2px solid var(--white);
+  background: var(--white);
+  padding: 0 1rem 0 3.1rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--navy);
+  outline: none;
+}
+
+.emp-search-input:focus {
+  border-color: var(--red);
+}
+
+.emp-suggestions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.25rem;
+  font-size: 0.78rem;
+}
+
+.emp-suggest-label {
+  color: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.emp-suggest-chip {
+  background: var(--navy);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: var(--white);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.76rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.emp-suggest-chip:hover {
+  background: var(--red);
+  border-color: var(--red);
+}
+
+.emp-hero-ctas {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 3.5rem;
+}
+
+.emp-hero-stats-band {
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  padding-top: 2rem;
+}
+
+.emp-hero-stats-label {
+  display: block;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+}
+
+.emp-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1.5rem;
+}
+
+.emp-stat-item {
+  border-left: 3px solid var(--red);
+  padding-left: 1rem;
+}
+
+.emp-stat-value {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1;
+  font-family: var(--font-mono);
+}
+
+.emp-stat-title {
+  margin-top: 0.35rem;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 500;
+}
+
+/* =========================================================================
+   FOUR WAYS TO WORK (Solid Clean Cards)
+   ========================================================================= */
+.emp-modes-section {
+  padding-block: 5rem;
+  background: var(--bg-page);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.emp-section-head {
+  max-width: 800px;
+  margin-bottom: 3rem;
+}
+
+.emp-eyebrow {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--red);
+  margin-bottom: 0.5rem;
+}
+
+.emp-section-title {
+  font-size: clamp(2rem, 1.5rem + 1.8vw, 2.7rem);
+  font-weight: 800;
+  color: var(--red);
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  margin: 0 0 1rem 0;
+}
+
+.emp-section-desc {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.emp-modes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.emp-mode-card {
+  background: var(--bg-alt);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  color: var(--navy);
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.emp-mode-card:hover {
+  border-color: var(--red);
+  background: var(--white);
+}
+
+.emp-mode-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+.emp-mode-num {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--red);
+}
+
+.emp-mode-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius);
+  background: var(--white);
+  color: var(--red);
+  border: 1px solid var(--border-light);
+  display: grid;
+  place-items: center;
+}
+
+.emp-mode-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 0 0 0.5rem 0;
+}
+
+.emp-mode-desc {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin-bottom: 1.25rem;
+}
+
+.emp-mode-example {
+  background: var(--white);
+  border: 1px solid var(--border-light);
+  border-left: 3px solid var(--red);
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius);
+  font-size: 0.78rem;
+  color: var(--navy);
+  font-style: italic;
+  line-height: 1.45;
+  margin-bottom: 1.5rem;
+}
+
+.emp-mode-cta {
+  margin-top: auto;
+  border-top: 1px solid var(--border-light);
+  padding-top: 0.85rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--red);
+}
+
+/* =========================================================================
+   FOOTER (Solid Navy, Crisp White / Red text, No Gradients)
+   ========================================================================= */
+footer,
+.footer {
+  background: var(--navy) !important;
+  color: var(--white) !important;
+  border-top: 3px solid var(--red) !important;
+  padding-block: 4rem 2rem !important;
+}
+
+footer a,
+.footer a {
+  color: rgba(255, 255, 255, 0.85) !important;
+  transition: color 0.15s ease !important;
+}
+
+footer a:hover,
+.footer a:hover {
+  color: var(--red) !important;
+}
+
+footer h4,
+.footer h4 {
+  color: var(--white) !important;
+  font-weight: 700 !important;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.2) !important;
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+/* =========================================================================
+   HEADER DROPDOWNS & SEARCH OVERLAY
+   ========================================================================= */
+.emp-nav-item-dropdown {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.emp-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 280px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-top: 3px solid var(--red);
+  padding: 0.5rem 0;
+  box-shadow: 0 10px 25px rgba(11, 49, 97, 0.12);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+
+.emp-dropdown-item {
+  padding: 0.65rem 1rem;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  transition: background 0.15s ease;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.emp-dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.emp-dropdown-item strong {
+  font-size: 0.88rem;
+  color: var(--navy);
+  font-weight: 700;
+  margin-bottom: 0.15rem;
+}
+
+.emp-dropdown-item span {
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+.emp-dropdown-item:hover {
+  background: #f8fafc;
+}
+
+.emp-dropdown-item:hover strong {
+  color: var(--red);
+}
+
+.emp-dropdown-item:hover span {
+  color: var(--navy);
+}
+
+/* =========================================================================
+   PAGE HERO & BREADCRUMBS (SERVICES, FIRMS, CASE STUDIES, TEMPLATES)
+   ========================================================================= */
+.emp-page-wrap {
+  min-height: 80vh;
+  background: #ffffff;
+}
+
+.emp-services-hero {
+  background: var(--navy);
+  color: #ffffff;
+  padding: 3.5rem 0 3rem;
+  border-bottom: 3px solid var(--red);
+  position: relative;
+}
+
+.emp-hero-breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 0.75rem;
+}
+
+.emp-hero-breadcrumbs a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.emp-hero-breadcrumbs a:hover {
+  color: var(--red);
+}
+
+/* =========================================================================
+   DETAIL PAGES (SERVICE DETAIL, LEGAL PAGES, TEMPLATES)
+   ========================================================================= */
+.emp-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+@media (max-width: 992px) {
+  .emp-detail-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.emp-detail-main {
+  min-width: 0;
+}
+
+.emp-detail-sidebar {
+  min-width: 0;
+}
+
+/* =========================================================================
+   3-TIER EXACT FOOTER (engineersmp.com replica)
+   ========================================================================= */
+.emp-footer-root {
+  background: var(--navy) !important;
+  color: #ffffff !important;
+  border-top: 3px solid var(--red) !important;
+  padding: 4rem 0 2.5rem !important;
+  font-family: inherit;
+}
+
+.emp-footer-top-grid {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+@media (max-width: 992px) {
+  .emp-footer-top-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.emp-footer-brand-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.emp-footer-nav-cols {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 840px) {
+  .emp-footer-nav-cols {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 540px) {
+  .emp-footer-nav-cols {
+    grid-template-columns: 1fr;
+  }
+}
+
+.emp-footer-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.emp-footer-col-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.emp-footer-links-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.emp-footer-links-list li a {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.emp-footer-links-list li a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* Tier 2: Mid-Section Chips */
+.emp-footer-mid-section {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 2.5rem 0;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.emp-footer-chip-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.emp-footer-mid-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+}
+
+.emp-footer-chips-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.emp-footer-chip {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: rgba(255, 255, 255, 0.9);
+  padding: 0.25rem 0.6rem;
+  font-size: 0.72rem;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: all 0.15s ease;
+}
+
+.emp-footer-chip:hover {
+  background: #ffffff;
+  color: var(--navy);
+  border-color: #ffffff;
+}
+
+/* Tier 3: Bottom Bar */
+.emp-footer-bottom-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.emp-footer-copy {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.emp-footer-legal-links {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.emp-footer-legal-links a {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+}
+
+.emp-footer-legal-links a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.emp-footer-practice-notice {
+  font-size: 0.74rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.6;
+  margin: 0;
+  max-width: 950px;
+}
+
+.emp-footer-practice-notice strong {
+  color: #ffffff;
+}
+
+/* =========================================================================
+   CLIENT CONTRAST & RED HEADERS ENHANCEMENTS
+   ========================================================================= */
+.emp-section-heading {
+  color: var(--red) !important;
+  font-weight: 800 !important;
+}
+
+/* Make page heroes and section titles have high-contrast red headings where applicable */
+.section-title,
+.page-title,
+h2.emp-group-name {
+  color: var(--red) !important;
+}
+
+/* Ensure clean contrast on dark badges & cards */
+.emp-badge-pill {
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+/* Make card titles high contrast */
+.emp-card h3 {
+  color: var(--navy);
+  font-weight: 700;
+}
+
+/* =========================================================================
+   PAGE SPACING & FOOTER LINK PAGES (LEGAL, TERMS, CASE STUDIES, ETC.)
+   ========================================================================= */
+.emp-section {
+  padding-block: 4.5rem 5rem !important;
+}
+
+.emp-page-wrap {
+  padding-bottom: 5rem;
+  background: #f8fafc;
+}
+
+.emp-services-hero {
+  padding: 4.5rem 0 4rem !important;
+  border-bottom: none !important;
+}
+
+.emp-detail-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 3rem;
+  align-items: start;
+}
+
+@media (max-width: 992px) {
+  .emp-detail-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.emp-detail-main .emp-card {
+  padding: 2.75rem 3rem !important;
+  background: #ffffff;
+  border: 1px solid #d9e2ec;
+  border-radius: 6px;
+  box-shadow: 0 2px 12px rgba(11, 49, 97, 0.04);
+}
+
+.emp-detail-sidebar .emp-card {
+  padding: 2rem !important;
+  background: #ffffff;
+  border: 1px solid #d9e2ec;
+  border-radius: 6px;
+  box-shadow: 0 2px 12px rgba(11, 49, 97, 0.04);
+}
+
+/* =========================================================================
+   PILL BUTTONS, SEARCH BARS & CARD POLISHING (Client Screenshots Replica)
+   ========================================================================= */
+.emp-filter-bar-wrap {
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 1.25rem 0;
+}
+
+.emp-filter-pills-row {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.6rem;
+  align-items: center;
+  /* Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: var(--red) #f1f5f9;
+}
+
+/* Custom Red Slim Scrollbar for Filter Pills (Chrome, Edge, Safari) */
+.emp-filter-pills-row::-webkit-scrollbar {
+  height: 4px;
+}
+
+.emp-filter-pills-row::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 4px;
+}
+
+.emp-filter-pills-row::-webkit-scrollbar-thumb {
+  background: var(--red);
+  border-radius: 4px;
+}
+
+.emp-filter-pills-row::-webkit-scrollbar-thumb:hover {
+  background: #d91b3e;
+}
+
+/* Global Slim Red Scrollbar across the whole application */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--red);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d91b3e;
+}
+
+/* Rounded Filter Pills with clean border & transitions */
+.emp-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.45rem 1rem;
+  font-size: 0.84rem;
+  font-weight: 500;
+  border-radius: 9999px;
+  background: #ffffff;
+  color: var(--navy);
+  border: 1px solid #cbd5e1;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+  text-decoration: none;
+}
+
+.emp-chip:hover {
+  border-color: var(--navy);
+  background: #f8fafc;
+}
+
+.emp-chip.active {
+  background: var(--navy) !important;
+  color: #ffffff !important;
+  border-color: var(--navy) !important;
+  font-weight: 700;
+}
+
+/* Polish Search Field Box */
+.emp-search-field-box {
+  position: relative;
+  width: 300px;
+}
+
+@media (max-width: 640px) {
+  .emp-search-field-box {
+    width: 100%;
+  }
+}
+
+.emp-search-field-box .emp-input {
+  width: 100%;
+  height: 40px;
+  padding-left: 2.35rem;
+  padding-right: 1rem;
+  font-size: 0.85rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  background: #ffffff;
+  color: var(--navy);
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.emp-search-field-box .emp-input:focus {
+  border-color: var(--navy);
+  box-shadow: 0 0 0 3px rgba(11, 49, 97, 0.1);
+}
+
+/* Polished Project & Firm Cards */
+.emp-card {
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.emp-card:hover {
+  border-color: #94a3b8;
+  box-shadow: 0 4px 12px rgba(11, 49, 97, 0.08);
+}
