@@ -1,0 +1,28 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "services": {
+    "engineerbe": {
+      "root": "engineerBE",
+      "framework": "express"
+    },
+    "engineerfe": {
+      "root": "engineerFE",
+      "framework": "vite"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": {
+        "service": "engineerbe"
+      }
+    },
+    {
+      "source": "/(.*)",
+      "destination": {
+        "service": "engineerfe"
+      }
+    }
+  ]
+}
+
